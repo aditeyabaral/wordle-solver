@@ -15,6 +15,8 @@ options.add_argument('--allow-running-insecure-content')
 
 url = "https://www.nytimes.com/games/wordle/"
 driver = webdriver.Chrome(options=options)
+tz_params = {'timezoneId': 'Asia/Kolkata'}
+driver.execute_cdp_cmd('Emulation.setTimezoneOverride', tz_params)
 driver.get(url)
 time.sleep(0.3)
 
